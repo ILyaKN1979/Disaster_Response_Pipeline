@@ -1,2 +1,1 @@
-# Disaster_Response_Pipeline
-The project -  "Disaster Response Classification Application"
+# The project - "Disaster Response Classification Application"
