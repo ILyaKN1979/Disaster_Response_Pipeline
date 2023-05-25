@@ -31,7 +31,7 @@ def clean_data(df):
         # convert column from string to numeric
         categories[column] = pd.to_numeric(categories[column])
 
-    # drop the category 'child alone' all data are 0
+    # drop the category 'child alone' all data = 0
     categories.drop('child_alone', axis=1, inplace=True)
 
     # replace value 2 with 1 as we have only two classes 1 and 0
