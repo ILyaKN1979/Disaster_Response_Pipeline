@@ -67,3 +67,17 @@ parameters = {
 We only choose  the  type of regularization (L1 or L2)
 
 3) Web app - In the last step, a Flask web app displays the results of the model's work. 
+
+
+Screens:
+
+<picture>
+ <img alt="imbalanced_data" src="https://github.com/ILyaKN1979/Disaster_Response_Pipeline/blob/main/img/screen1.png">
+</picture>
+
+
+<picture>
+ <img alt="imbalanced_data" src="https://github.com/ILyaKN1979/Disaster_Response_Pipeline/blob/main/img/screen2.png">
+</picture>
+
+Thank you! 
