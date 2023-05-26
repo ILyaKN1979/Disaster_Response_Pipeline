@@ -26,6 +26,8 @@ There should be a distribution of Python versions 3.11*.
 
 ## Project Motivation<a name="motivation"></a>
 
+
+
 There are two datasets used to build the model:
 -  disaster_categories.csv: contains multi-label categories for each message
 -  disaster_messages.csv: contains the actual text messages, both in the original language as well as in English
@@ -35,6 +37,6 @@ The data is highly imbalanced.  You can see Figure 1.
  <img alt="imbalanced_data" src="https://github.com/ILyaKN1979/Disaster_Response_Pipeline/blob/main/img/imbalanced.png">
 </picture>
 Figure 1. Imbalanced Data 
-
+One category (child_alone) does not have a single label =1. 
 
 
