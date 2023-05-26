@@ -14,16 +14,10 @@ import nltk
 nltk.download(['punkt', 'wordnet'])
 nltk.download('stopwords')
 
-from sklearn.base import BaseEstimator, TransformerMixin
-from imblearn.ensemble import BalancedBaggingClassifier
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.datasets import make_multilabel_classification
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report,precision_recall_fscore_support
@@ -31,12 +25,11 @@ from sklearn.metrics import classification_report,precision_recall_fscore_suppor
 
 
 
-def load_data():
+def load_data(database_filepath):
     # load data from database
 
-    engine = create_engine('sqlite:///DisasterResponse.db')
+    engine = create_engine(f'sqlite:///..//{database_filepath}')
     df = pd.read_sql('Select * from InsertTableName', engine)
-    print(df.columns)
 
     df = df[['message', 'related', 'request', 'offer',
              'aid_related', 'medical_help', 'medical_products', 'search_and_rescue',
@@ -130,14 +123,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
-    pass
+    #Export model as a pickle
+    with open('model.pkl', 'wb') as file:
+        pickle.dump(model, file)
 
 
 def main():
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
-        print('Loading data...\n    DATABASE: {}'.format('!!!')) #database_filepath
-        X, Y, category_names = load_data() # database_filepath
+        print('Loading data...\n    DATABASE: {}'.format(database_filepath))
+        X, Y, category_names = load_data(database_filepath)
 
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
 
