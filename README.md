@@ -14,6 +14,7 @@ There should be a distribution of Python versions 3.11*.
 - Choose the correct folder (cd Disaster_Response_Pipeline)
 - Activate environment:  
 		python3 -m venv venv
+		
 		.\venv\Scripts\activate  
 		
 - To run ETL pipeline that cleans data and stores in database
@@ -44,7 +45,8 @@ The data is highly imbalanced.  You can see Figure 1.
 Figure 1. Imbalanced Data
  
 One category (child_alone) does not have a single label =1. 
-####Therefore, in order not to synthesize the data, I violated the task a little and did it for 35 categories for which there is data!!!
+
+#### Therefore, in order not to synthesize the data, I violated the task a little and did it for 35 categories for which there is data!!!
 
 2) Project Workspace - Machine Learning Pipeline
 For the machine learning portion, the data was split into a training set and a test set. Then, a machine learning pipeline was created that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the message column to predict classifications for 35 categories!!! (multi-output classification). Finally,  model would be saved to a pickle file. 
