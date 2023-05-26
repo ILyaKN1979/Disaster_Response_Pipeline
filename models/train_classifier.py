@@ -28,7 +28,7 @@ from sklearn.metrics import classification_report,precision_recall_fscore_suppor
 def load_data(database_filepath):
     # load data from database
 
-    engine = create_engine(f'sqlite:///..//{database_filepath}')
+    engine = create_engine(f'sqlite:///{database_filepath}')
     df = pd.read_sql('Select * from InsertTableName', engine)
 
     df = df[['message', 'related', 'request', 'offer',
