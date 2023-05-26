@@ -1,4 +1,4 @@
-# The project - "Disaster Response Classification Application"
+# The project - "Disaster Response Classification"
 
 
 ### Table of Contents
@@ -7,7 +7,7 @@
 
 ## Installation <a name="installation"></a>
 
-There should be a distribution of Python versions 3.11*.
+There should be a distribution of Python version 3.11*.
 
 - Clone this repository
 - Install required packages by run 'pip install -r requirements.txt'
@@ -26,11 +26,11 @@ There should be a distribution of Python versions 3.11*.
 
 
 ## Project Motivation<a name="motivation"></a>
-Super project from Udacity - Disaster Response Classification 
+This is the super project from Udacity - Disaster Response Classification 
 
 1) Project Workspace - ETL:
 
-The initial stage of your data pipeline involves the Extract, Transform, and Load (ETL) process. In this step, you will retrieve the dataset, perform data cleaning using pandas, and subsequently save it into an SQLite database.
+The initial stage of the data pipeline involves the Extract, Transform, and Load (ETL) process. In this step, we will retrieve the dataset, perform data cleaning using pandas, and subsequently save it into an SQLite database.
 
 Prior to this, exploratory data analysis was conducted to determine the desired approach for preparing the dataset.
 
