@@ -5,14 +5,14 @@ from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
     """
-        Load and merge messages and categories datasets.
+    Load and merge messages and categories datasets.
 
-        Args:
-            messages_filepath (str): Filepath of the messages dataset.
-            categories_filepath (str): Filepath of the categories dataset.
+    Args:
+        messages_filepath (str): Filepath of the messages dataset.
+        categories_filepath (str): Filepath of the categories dataset.
 
-        Returns:
-            pandas.DataFrame: Merged dataframe containing messages and categories.
+    Returns:
+        pandas.DataFrame: Merged dataframe containing messages and categories.
 
     """
     # load messages dataset
@@ -27,13 +27,13 @@ def load_data(messages_filepath, categories_filepath):
 
 def clean_data(df):
     """
-        Clean and preprocess the merged dataframe.
+    Clean and preprocess the merged dataframe.
 
-        Args:
-            df (pandas.DataFrame): Merged dataframe containing messages and categories.
+    Args:
+        df (pandas.DataFrame): Merged dataframe containing messages and categories.
 
-        Returns:
-            pandas.DataFrame: Cleaned and preprocessed dataframe.
+    Returns:
+        pandas.DataFrame: Cleaned and preprocessed dataframe.
 
     """
     # create a dataframe of the 36 individual category columns
@@ -89,14 +89,13 @@ def save_data(df, database_filename):
 
 def main():
     """
-        Main function to process and save data.
+    Main function to process and save data.
 
-        Args:
-            None
+    Args:
+        None
 
-        Returns:
-            None
-
+    Returns:
+        None
     """
 
     if len(sys.argv) == 4:

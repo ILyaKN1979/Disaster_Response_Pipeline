@@ -19,6 +19,16 @@ nltk.download('stopwords')
 app = Flask(__name__)
 
 def tokenize(text):
+    """
+    Tokenize and preprocess the given text.
+
+    Args:
+        text (str): Text to be tokenized.
+
+    Returns:
+        list: List of clean tokens after preprocessing.
+
+    """
 
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 

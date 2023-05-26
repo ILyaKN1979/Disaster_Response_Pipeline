@@ -26,6 +26,20 @@ from sklearn.metrics import classification_report,precision_recall_fscore_suppor
 
 
 def load_data(database_filepath):
+    """
+    Load data from an SQLite database.
+
+    Args:
+        database_filepath (str): Filepath of the SQLite database.
+
+    Returns:
+        tuple: A tuple containing the following:
+            X (pandas.Series): Series containing the messages.
+            y (pandas.DataFrame): Dataframe containing the target categories.
+            categories (Index): Index containing the names of the target categories.
+
+    """
+
     # load data from database
 
     engine = create_engine(f'sqlite:///{database_filepath}')
@@ -56,7 +70,16 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """
+    Tokenize and preprocess the given text.
 
+    Args:
+        text (str): Text to be tokenized.
+
+    Returns:
+        list: List of clean tokens after preprocessing.
+
+    """
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 
     detected_urls = re.findall(url_regex, text)
@@ -82,6 +105,14 @@ def tokenize(text):
 
 
 def build_model():
+    """
+    Build a machine learning model pipeline.
+
+    Returns:
+        GridSearchCV: Grid search object for model training and hyperparameter tuning.
+
+    """
+
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -92,10 +123,9 @@ def build_model():
 
         ])
     # specify parameters for grid search
-    """
-    I have done a lot of experimentation and chosen the best option. 
-    According to the task, I am using here Grid search only with two parameters, otherwise, the training will be too long.
-    """
+    #I have done a lot of experimentation and chosen the best option.
+    #According to the task, I am using here Grid search only with two parameters, otherwise, the training will be too long.
+
     parameters = {
         'clf__estimator__penalty': ['l1', 'l2'],  # type regularization (L1 or L2)
                 }
@@ -108,6 +138,20 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    Evaluate the trained model on the test set and print the classification report.
+
+    Args:
+        model (object): Trained model object.
+        X_test (pandas.Series): Test set features.
+        Y_test (pandas.DataFrame): Test set labels.
+        category_names (Index): Index containing the names of the target categories.
+
+    Returns:
+        None
+
+    """
+
     y_pred = model.predict(X_test)
     # Calculate and print classification report
     i = 0
@@ -119,16 +163,31 @@ def evaluate_model(model, X_test, Y_test, category_names):
         print("-----------------------------")
         i += 1
 
-
-
-
 def save_model(model, model_filepath):
+    """
+    Save the trained model as a pickle file.
+
+    Args:
+        model (object): Trained model object.
+        model_filepath (str): Filepath to save the model.
+
+    Returns:
+        None
+
+    """
     #Export model as a pickle
     with open('model.pkl', 'wb') as file:
         pickle.dump(model, file)
 
 
 def main():
+    """
+    Main function for training and evaluating the classifier model.
+
+    Returns:
+        None
+
+    """
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))

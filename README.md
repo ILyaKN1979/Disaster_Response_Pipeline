@@ -36,7 +36,8 @@ The data is highly imbalanced.  You can see Figure 1.
 <picture>
  <img alt="imbalanced_data" src="https://github.com/ILyaKN1979/Disaster_Response_Pipeline/blob/main/img/imbalanced.png">
 </picture>
-Figure 1. Imbalanced Data 
+Figure 1. Imbalanced Data
+ 
 One category (child_alone) does not have a single label =1. 
 
 
